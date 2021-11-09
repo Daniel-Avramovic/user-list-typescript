@@ -1,0 +1,12 @@
+header{
+    background-color: aqua;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    font-size: 1.5em;
+}
+.head > div > span {
+    margin-right: 10px;
+}
