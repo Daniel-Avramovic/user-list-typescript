@@ -1,4 +1,8 @@
 import React, { FC } from "react";
+import { bindActionCreators } from "redux";
+import { useSelector, useDispatch } from "react-redux";
+import { actions } from '../../state/combineActions'
+import { RootState } from '../../state/reducers/combineReducers'
 import {
   UnorderedListOutlined,
   AppstoreOutlined,
@@ -7,6 +11,10 @@ import {
 import './header.css';
 
 const Header: FC = () => {
+  const { isListView } = useSelector((state: RootState)=>state.usersReducers);
+  const dispatch = useDispatch();
+  const { setView } = bindActionCreators(actions, dispatch);
+  console.log(setView);
   return (
     <header>
       <div className="container head">
@@ -16,8 +24,8 @@ const Header: FC = () => {
           <span>
             <ReloadOutlined />
           </span>
-          <span>
-            {false ? <UnorderedListOutlined /> : <AppstoreOutlined />}
+          <span onClick={()=>setView(isListView)}>
+            {isListView ? <AppstoreOutlined /> : <UnorderedListOutlined />}
           </span>
         </div>
       </div>
