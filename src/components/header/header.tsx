@@ -14,7 +14,6 @@ const Header: FC = () => {
   const { isListView } = useSelector((state: RootState)=>state.usersReducers);
   const dispatch = useDispatch();
   const { setView } = bindActionCreators(actions, dispatch);
-  console.log(setView);
   return (
     <header>
       <div className="container head">
